@@ -1,309 +1,383 @@
-/* Base styling */
-@import url('https://fonts.googleapis.com/css2?family=Xanh+Mono:ital,wght@0,400;1,400&display=swap');
+/* =========================================================
+   VISA URALA — style_darkculture.css
+   Early-2000s goth e-zine look (Dark Culture Magazine style)
+   Pure black, 1px grey rules, periwinkle links, ribbed header bars.
+   No shadows. No rounded corners. No blur. No transitions.
+   ========================================================= */
 
-html {
-  overflow-x: hidden; /* Kills horizontal scroll */
+:root {
+  --bg:       #000;
+  --rule:     #555;       /* 1px borders everywhere */
+  --rule-lo:  #2e2e2e;
+  --bar:      #333;       /* grey header bars */
+  --text:     #fff;
+  --text-lo:  #aaa;
+  --text-dim: #777;
+  --link:     #8484d9;    /* periwinkle */
+  --link-vis: #a898e0;
+  --link-hov: #fff;
+  --red:      #d41c1c;
+  --mono:     "Xanh Mono", "Courier New", monospace;
+  --sans:     Verdana, Arial, Helvetica, sans-serif;
+  --serif:    "Times New Roman", Times, serif;
 }
+
+* { box-sizing: border-box; border-radius: 0; box-shadow: none; }
+
+html { scrollbar-color: #555 #000; }
 
 body {
   margin: 0;
-  padding: 0;
-  background-color: #000000;
-  font-family: 'Xanh Mono', monospace;
-  font-size: 1.4rem;
-  color: #f5f5f5;
-  letter-spacing: 0.2em;
-  line-height: 1.6;
-  width: 100%; /* Contains layout */
-}
-
-/* Optional content wrapper */
-.container {
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-.banner {
-  width: 100%; /* Changed from 100vw to prevent overflow */
+  padding: 8px 0 20px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 10px;
+  line-height: 1.4;
   position: relative;
-  left: 0; /* Removed negative margins */
-  right: 0;
-  margin-left: 0;
-  margin-right: 0;
 }
 
-.banner img {
-  width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: cover;
-  display: block;
-}
+img { display: block; max-width: 100%; border: 0; }
+p { margin: 0 0 8px; }
 
-/* Navigation */
-.main-nav {
-  background-color: #111;
-  text-align: center;
-}
+a { color: var(--link); text-decoration: none; }
+a:visited { color: var(--link-vis); }
+a:hover { color: var(--link-hov); text-decoration: underline; }
 
-.main-nav ul {
-  list-style: none;
+::selection { background: #8484d9; color: #000; }
+
+/* ---------- ASCII wall (page margins only) ---------- */
+.ascii-wall {
+  position: fixed;
+  top: 60px;
+  left: 8px;
   margin: 0;
-  padding: 0;
-  display: inline-flex;
-  gap: 10.5rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.1;
+  color: #2a2a2a;
+  pointer-events: none;
+  z-index: 0;
+  white-space: pre;
 }
 
-.main-nav li {
-  display: inline;
-}
-
-.main-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.5rem;
-  padding: 1.5rem 1rem;
-  display: inline-block;
-  transition: color 0.3s;
-  letter-spacing: 0.6em;
-}
-
-.main-nav a:visited {
-  color: white;
-}
-
-.main-nav a:hover {
-  color: #99c1c4;
-}
-
-/* Gallery container spacing */
-.gallery-container {
-    margin-top: 10rem; /* Gap between text and first image */
-}
-
-.gallery-row {
-    display: block;
-    text-align: center;
-    margin-bottom: 14rem;
-    padding-bottom: 20rem; /* Extra spacing */
-    width: 100%;
-    clear: both;
-}
-
-.gallery-img {
-    max-width: 100%; /* Adjust this percentage to control image width */
-    height: auto; /* This preserves aspect ratio */
-    display: block;
-    margin: 0 auto; /* Center the image */
-    object-fit: contain; /* Ensures no stretching */
-}
-
-.container p:first-child {
-    margin-top: 6rem;
-}
-
-/* FORCED HOVER EFFECT (overrides everything) */
-.container p a[style] {
-  color: #f5f5f5 !important;
-  text-decoration: none !important;
-  transition: color 0.3s !important;
-}
-
-.container p a[style]:hover {
-  color: #99c1c4 !important;
-  text-decoration: none !important;
-}
-
-.gallery-header img {
-  width: 80%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  margin-top: 130px;
-}
-
-.back-to-top {
-    text-align: center;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-}
-
-.back-to-top a {
-    color: #f5f5f5;
-    text-decoration: none;
-    font-size: 1.2rem;
-    letter-spacing: 0.4em;
-    transition: color 0.3s;
-}
-
-.back-to-top a:hover {
-    color: #99c1c4;
-}
-
-.container {
-  padding-bottom: 20px; /* Adjust this value as needed */
-  /* OR */
-  margin-bottom: 20px; /* If you prefer margin */
-}
-
-/* --------------------------------
-   BRAMBLEFORT PROJECT STYLING
-   -------------------------------- */
-
-/* Project logo styling */
-.project-logo {
-    max-width: 80%;
-    height: auto;
-    margin: 2rem auto;
-    display: block;
-}
-
-/* Screenshot/gallery image styling */
-.project-image {
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-    margin: 3rem auto;
-    display: block;
-    transition: opacity 0.3s;
-}
-
-.project-image:hover {
-    opacity: 0.9;
-}
-
-/* Vertical spacing between images */
-.project-gallery img:not(:last-child) {
-    margin-bottom: 4rem;
-}
-
-/* Steam widget styling */
-.steam-widget {
-    margin: 3rem auto;
-    border: 1px solid #222;
-}
-
-/* Add this to your style.css */
-.gallery-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto 0rem auto; /* 8rem gap below each image */
-    object-fit: contain;
-}
-
-/* For the last image, remove bottom margin */
-.gallery-img:last-child {
-    margin-bottom: 0;
-}
-
-/* PROJECTS PAGE BACKGROUND ONLY */
- body.projects-page {
-  background: #000000 url('projects_bg.png') no-repeat center center fixed;
-  background-size: cover;
-  position: relative;
-}
-
-body.projects-page .container,
-body.projects-page .main-nav,
-body.projects-page .banner {
+/* ---------- Shell ---------- */
+.site-shell {
   position: relative;
   z-index: 1;
-}
-
-/* Base link styling for the entire site */
-a {
-  color: #f5f5f5;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-a:hover {
-  color: #99c1c4;
-}
-
-/* ####################################### */
-/* MOBILE RESPONSIVE FIXES (THE SOLUTION) */
-/* ####################################### */
-
-@media (max-width: 1400px) {
-  /* First breakpoint for large tablets/small laptops */
-  .main-nav ul {
-    gap: 5rem; /* Drastically reduce the gap on medium screens */
-  }
-}
-
-@media (max-width: 800px) {
-  /* Main breakpoint for tablets and phones */
-
-  /* 1. FIX THE NAVIGATION */
-  .main-nav ul {
-    display: flex;          /* Change from inline-flex to flex */
-    flex-direction: column; /* Stack items vertically */
-    gap: 0;                 /* Remove the huge gap */
-    width: 100%;
-  }
-
-  .main-nav a {
-    font-size: 1.2rem;      /* Slightly smaller font */
-    padding: 1rem;          /* Reduce padding */
-    letter-spacing: 0.3em;  /* Drastically reduce letter spacing */
-    display: block;         /* Make the whole area clickable */
-    width: 100%;
-    box-sizing: border-box; /* Padding included in width */
-  }
-
-  /* 2. OPTIONAL: Adjust other elements for mobile */
-  body {
-    font-size: 1.1rem; /* Slightly smaller base font size */
-    letter-spacing: 0.1em;
-    line-height: 1.5;
-  }
-
-  .container {
-    padding: 1rem; /* Reduce padding on mobile */
-  }
-
-  .gallery-container {
-    margin-top: 5rem; /* Reduce large top margin on mobile */
-  }
-
-  .gallery-row {
-    margin-bottom: 5rem; /* Reduce massive spacing between rows */
-    padding-bottom: 5rem;
-  }
-
-  .gallery-header img {
-    width: 95%; /* Use more of the screen width on mobile */
-    margin-top: 80px;
-  }
-}
-
-@media (max-width: 1100px) {
-  /* Optional: Extra adjustments for very small phones */
-  .main-nav a {
-    font-size: 1rem;
-    padding: 0.8rem;
-  }
-}
-
-/* 2. FIX THE ITCH.IO EMBED */
-  /* Targets the container div that the embed is in */
-  .container iframe {
-    width: 100% !important; 
-    max-width: 100% !important; 
-    height: 170px; 
-  }
-
-
-/* YouTube Embed */
-.container .youtube-video {
-  width: 100% !important; 
-  aspect-ratio: 16 / 9 !important;
-  max-width: 900px;
-  display: block;
+  width: 100%;
+  max-width: 860px;
   margin: 0 auto;
-  height: auto !important; 
+  background: var(--bg);
+  border: 1px solid var(--rule);
+}
+
+/* ---------- Topline (tiny announcement bar) ---------- */
+.topline {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  padding: 3px 8px;
+  font: bold 9px/1.3 var(--sans);
+  color: var(--text);
+  letter-spacing: .5px;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ---------- Masthead ---------- */
+.masthead {
+  position: relative;
+  background: #000;
+  border-bottom: 1px solid var(--rule);
+  min-height: 60px;
+}
+.masthead img { width: 100%; height: auto; }
+
+.masthead-label {
+  position: absolute;
+  left: 0; right: 0; bottom: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+}
+.masthead-label span:first-child {
+  font: 36px/1 var(--serif);
+  color: #bdbdbd;
+  letter-spacing: 3px;
+}
+.masthead-label span:last-child {
+  margin-top: 4px;
+  font: bold 9px/1 var(--sans);
+  letter-spacing: 2px;
+  color: var(--text-dim);
+}
+
+/* ---------- Main nav ---------- */
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 22px;
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.main-nav a {
+  font: bold 10px/1.3 var(--sans);
+  color: #b4b4f2;
+}
+.main-nav a::before {
+  content: "";
+  display: inline-block;
+  width: 4px; height: 4px;
+  margin-right: 5px;
+  background: #ddd;
+  vertical-align: middle;
+}
+.main-nav a:hover { color: #fff; }
+
+/* ---------- Ticker (sponsor-bar style) ---------- */
+.ticker {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 6px 8px;
+  padding: 3px 6px;
+  border: 1px solid var(--rule);
+  font: 9px/1.3 var(--sans);
+  color: var(--text-dim);
+  letter-spacing: .5px;
+}
+.ticker span:nth-child(2) { color: var(--text-lo); }
+
+/* ---------- Grid with 1px column rules ---------- */
+.page-grid {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) 150px;
+  align-items: stretch;
+  border-top: 1px solid var(--rule);
+}
+
+.left-column  { padding: 8px 6px; border-right: 1px solid var(--rule); }
+.right-column { padding: 8px 6px; border-left:  1px solid var(--rule); }
+.main-column  { padding: 8px 8px 2px; min-width: 0; }
+
+/* =========================================================
+   SIDE COLUMNS — ribbed header bars + bullet links
+   ========================================================= */
+.side-column .old-box { margin: 0 0 14px; }
+
+.side-column .box-title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 0 7px;
+  font: bold 8px/1 var(--sans);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.side-column .box-title::before,
+.side-column .box-title::after {
+  content: "";
+  flex: 1;
+  height: 7px;
+  background: repeating-linear-gradient(180deg, #7a7a7a 0 1px, #000 1px 2px);
+}
+
+.link-list { list-style: none; margin: 0; padding: 0; }
+.link-list li { margin: 0 0 4px; padding-left: 10px; position: relative; }
+.link-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 4px;
+  width: 4px; height: 4px;
+  background: #ddd;
+}
+.link-list a { font-weight: bold; }
+
+.facts { margin: 0; padding: 0 0 0 10px; }
+.facts dt { margin-top: 6px; font-weight: bold; color: #fff; font-size: 9px; letter-spacing: 1px; }
+.facts dd { margin: 0; color: var(--text-lo); }
+
+.ascii-stamp pre {
+  margin: 0;
+  padding: 4px 6px;
+  font: 12px/1.2 var(--mono);
+  color: var(--text-lo);
+  border: 1px solid var(--rule);
+}
+
+.right-column p { color: var(--text-lo); }
+.right-column .small-note { color: var(--text-dim); }
+.right-column .image-box img { width: 100%; height: auto; border: 1px solid var(--rule); }
+
+.back-top {
+  display: block;
+  margin-top: 4px;
+  padding: 3px 4px;
+  text-align: center;
+  font: bold 9px/1.3 var(--sans);
+  border: 1px solid var(--rule);
+}
+
+/* =========================================================
+   MAIN COLUMN — boxed sections with grey bars
+   ========================================================= */
+.main-column .old-box {
+  margin: 0 0 10px;
+  border: 1px solid var(--rule);
+  background: var(--bg);
+}
+
+.main-column .box-title {
+  margin: 0;
+  padding: 2px 5px;
+  background: var(--bar);
+  border-bottom: 1px solid var(--rule);
+  font: bold 9px/1.4 var(--sans);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.main-column .old-box > p,
+.main-column .welcome-body,
+.main-column .about-inner,
+.main-column .feature-caption { padding-left: 6px; padding-right: 6px; }
+
+.main-column .old-box > .box-title + * { margin-top: 6px; }
+.main-column .old-box > :last-child { margin-bottom: 6px; }
+
+/* Welcome (big editorial text like the "March 2002" intro) */
+.welcome-box .box-title { font-size: 11px; letter-spacing: 1px; }
+.welcome-body { padding-top: 6px; padding-bottom: 4px; }
+.welcome-body p {
+  font: 15px/1.35 Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+.welcome-body p:first-child::first-line { font-style: italic; }
+
+.divider {
+  height: 0;
+  margin: 8px 0;
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+  border-top: 1px solid var(--rule);
+  width: 70%;
+  overflow: hidden;
+}
+
+.small-note {
+  font: 9px/1.4 var(--sans);
+  letter-spacing: .5px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+/* Work box */
+.feature-image {
+  display: block;
+  margin: 6px 6px 0;
+  border: 1px solid var(--rule);
+  background: #000;
+}
+.feature-image img { width: 100%; height: auto; }
+.feature-image:hover { border-color: #fff; }
+
+.feature-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 5px 0 4px;
+  font: bold 11px/1.3 var(--sans);
+  color: #fff;
+  letter-spacing: 1px;
+}
+.feature-caption span:last-child { color: var(--text-dim); font-weight: normal; font-size: 9px; align-self: center; }
+
+.main-column .work-box > p { font-size: 11px; color: #ddd; }
+
+.box-links a { font-weight: bold; font-size: 10px; letter-spacing: .5px; }
+
+/* About */
+.about-inner {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding-top: 6px;
+  padding-bottom: 4px;
+}
+.about-inner img {
+  flex: 0 0 110px;
+  width: 110px;
+  height: auto;
+  border: 1px solid var(--rule);
+}
+.about-inner > div { flex: 1; min-width: 0; }
+.about-inner p { font-size: 11px; color: #ddd; }
+
+/* Contact */
+.contact-box > p { font-size: 11px; color: #ddd; }
+
+/* =========================================================
+   THUMBNAIL GRIDS (work blocks + renders)
+   ========================================================= */
+.thumb-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  margin: 6px 6px 0;
+}
+.thumb-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.thumb-grid a {
+  display: block;
+  border: 1px solid var(--rule);
+  background: #000;
+}
+.thumb-grid a:hover { border-color: #fff; }
+.thumb-grid img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+.main-column .old-box > .thumb-grid + p,
+.main-column .old-box > .feature-caption + p { margin-top: 0; }
+.main-column .old-box > .thumb-grid { margin-bottom: 6px; }
+.feature-image + .thumb-grid { margin-top: 4px; }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-top: 1px solid var(--rule);
+  font: 9px/1.3 var(--sans);
+  color: var(--text-dim);
+  letter-spacing: .5px;
+}
+.footer-mark { color: var(--text-lo); }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 780px) {
+  .page-grid { grid-template-columns: 1fr; }
+  .left-column  { border-right: 0; border-bottom: 1px solid var(--rule); }
+  .right-column { border-left: 0;  border-top: 1px solid var(--rule); }
+  .main-column  { order: -1; }
+  .ascii-wall { display: none; }
+  .ticker, .site-footer { flex-direction: column; text-align: center; }
+  .about-inner { flex-direction: column; }
+  .thumb-grid, .thumb-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
+  .about-inner img { width: 100%; flex-basis: auto; }
+  .masthead-label span:first-child { font-size: 24px; }
 }
