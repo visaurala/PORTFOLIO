@@ -6,6 +6,8 @@
 
 .thumb-grid a[data-full] { cursor: zoom-in; }
 .thumb-grid.wide img { aspect-ratio: 16 / 9; }
+.thumb-grid.tall img { aspect-ratio: 3 / 4; object-position: top; }
+.thumb-grid.natural { align-items: start; }
 .thumb-grid.natural img { aspect-ratio: auto; height: auto; object-fit: contain; }
 
 .feature-image.static { cursor: default; }
