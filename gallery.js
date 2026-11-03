@@ -81,10 +81,11 @@
   }
 
   document.addEventListener('click', function (e) {
-    var a = e.target.closest ? e.target.closest('.thumb-grid a[data-full]') : null;
+    var a = e.target.closest ? e.target.closest('.thumb-grid a[data-full], a.feature-image[data-full]') : null;
     if (a) {
       e.preventDefault();
-      var group = Array.prototype.slice.call(a.parentNode.querySelectorAll('a[data-full]'));
+      var scope = a.closest('.work-box') || a.parentNode;
+      var group = Array.prototype.slice.call(scope.querySelectorAll('a[data-full]'));
       open(group, group.indexOf(a));
       return;
     }

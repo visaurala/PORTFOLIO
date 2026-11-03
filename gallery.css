@@ -4,7 +4,7 @@
    Same rules as the rest: no shadows, no radius, no transitions.
    ========================================================= */
 
-.thumb-grid a[data-full] { cursor: zoom-in; }
+.thumb-grid a[data-full], a.feature-image[data-full] { cursor: zoom-in; }
 .thumb-grid.wide img { aspect-ratio: 16 / 9; }
 .thumb-grid.tall img { aspect-ratio: 3 / 4; object-position: top; }
 .thumb-grid.natural { align-items: start; }
